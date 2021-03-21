@@ -1,0 +1,30 @@
+CREATE TABLE "user"(
+    user_index char(50) primary key,
+    user_id char(50) unique,
+    pwd char(50) not null,
+    user_type char(50),
+    user_name char(50) not null,
+    auth_code char(20),
+    user_email char(50) unique,
+    phone_number char(13),
+    birth_day char(10),
+    pwd_modified_at timestamp,
+    created_at timestamp,
+    modified_at timestamp
+);
+
+
+CREATE TABLE ""(
+    user_index char(50) primary key,
+    user_id char(50) unique,
+    pwd char(50) not null,
+    user_type char(50),
+    user_name char(50) not null,
+    auth_code char(20),
+    user_email char(50) unique,
+    phone_number char(13),
+    birth_day char(10),
+    pwd_modified_at timestamp,
+    created_at timestamp,
+    modified_at timestamp
+);
