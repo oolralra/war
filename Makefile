@@ -13,3 +13,16 @@ sp:
 mg-user:
 	python3 manage.py inspectdb --settings=base.settings.dev > user/models.py
 
+
+collect:
+	python3 manage.py collectstatic --settings=base.settings.dev
+
+docker:
+	docker build -t private_lesson:dev .
+	docker tag private_lesson:dev tjdntjr123/private_lesson:dev
+	docker push tjdntjr123/private_lesson:dev
+
+
+port0:
+	sudo docker pull tjdntjr123/private_lesson:dev
+	sudo docker run --rm --env-file ./.env.prod -p 8000:8001 -d --name dev tjdntjr123/private_lesson:dev
