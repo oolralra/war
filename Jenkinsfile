@@ -1,5 +1,5 @@
 node {
-    agent any
+    agent : any
     stage('Clone repository') {
         checkout scm
     }
