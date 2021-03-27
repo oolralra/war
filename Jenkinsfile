@@ -22,7 +22,7 @@ node {
     }
 
     stage('SSH docker run') {
-        steps([$class: 'BapSshPromotionPublisherPlugin']) {
+        script {
             sshPublisher(
                 continueOnError: false, failOnError: true,
                 publishers: [
