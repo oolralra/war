@@ -38,18 +38,4 @@ node {
             )
         }
     }
-//      stage ('Deploy') {
-//         steps {
-//             script {
-//                 echo 'Using remote command over ssh'
-//                 sh 'echo "Today is:" date'
-//                 echo '*** Executing remote commands ***'
-//
-//                 sh '${REMOTE_USER}@${REMOTE_HOST}'
-//                 sh 'scp deploy.sh ${REMOTE_USER}@${REMOTE_HOST}:~/'
-//                 sh 'ssh ${REMOTE_USER}@${REMOTE_HOST} "chmod +x deploy.sh"'
-//                 sh 'ssh ${REMOTE_USER}@${REMOTE_HOST} ./deploy.sh'
-//             }
-//         }
-    }
 }
