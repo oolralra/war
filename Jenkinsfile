@@ -22,7 +22,6 @@ node {
     }
 
     stage('SSH docker run') {
-        agent any
         steps([$class: 'BapSshPromotionPublisherPlugin']) {
             sshPublisher(
                 continueOnError: false, failOnError: true,
