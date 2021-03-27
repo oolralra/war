@@ -36,7 +36,7 @@ node {
                             sshTransfer(
                                 sourceFiles: "", //전송할 파일
                                 removePrefix: "", //파일에서 삭제할 경로가 있다면 작성
-                                remoteDirectory: "" //배포할 위치
+                                remoteDirectory: "", //배포할 위치
                                 execCommand: "make port" //원격지에서 실행할 커맨드
                         ]
                     )
