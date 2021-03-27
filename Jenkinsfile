@@ -30,7 +30,7 @@ node {
                         configName: "dev",
                         verbose: true,
                         transfers: [
-                            sshTransfer(execCommand: "make port")
+                            sshTransfer(execCommand: "make pull")
                         ]
                     )
                 ]
