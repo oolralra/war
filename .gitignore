@@ -49,25 +49,6 @@ fixture/
 *.manifest
 *.spec
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-pytestdebug.log
-
 # Translations
 *.mo
 
@@ -144,7 +125,6 @@ dmypy.json
 
 # pytype static type analyzer
 .pytype/
-requirements-dev.txt
 
 # http
 *.http
@@ -153,8 +133,6 @@ requirements-dev.txt
 # envrc
 .envrc
 .direnv
-zappa_settings.json
-commerce-admin-api-dev-template*
 
 .vim*
 tags
