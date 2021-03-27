@@ -1,6 +1,4 @@
 node {
-    agent : any
-
      stage('Clone repository') {
          checkout scm
      }
@@ -24,21 +22,16 @@ node {
          }
      }
 
-    stage('SSH transfer') {
+    stage('SSH docker run') {
         steps([$class: 'BapSshPromotionPublisherPlugin']) {
             sshPublisher(
                 continueOnError: false, failOnError: true,
                 publishers: [
                     sshPublisherDesc(
-                        configName: "dev",//Jenkins 시스템 정보에 사전 입력한 서버 ID
+                        configName: "dev",
                         verbose: true,
                         transfers: [
-                            sshTransfer(
-                                sourceFiles: "", //전송할 파일
-                                removePrefix: "", //파일에서 삭제할 경로가 있다면 작성
-                                remoteDirectory: "", //배포할 위치
-                                execCommand: "make port" //원격지에서 실행할 커맨드
-                            )
+                            sshTransfer(execCommand: "make port")
                         ]
                     )
                 ]
