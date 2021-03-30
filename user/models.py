@@ -135,3 +135,19 @@ class User(models.Model):
     class Meta:
         managed = False
         db_table = 'user'
+
+    # def indexing(self):
+    #     obj = User(
+    #         meta={'id': self.id},
+    #         user_index=self.user_index,
+    #         user_id=self.user_id,
+    #         user_type=self.user_type,
+    #         user_name=self.user_name,
+    #         user_email=self.user_email,
+    #         phone_number=self.phone_number,
+    #         birth_day=self.birth_day,
+    #         created_at=self.created_at,
+    #         modified_at=self.modified_at,
+    #     )
+    #     obj.save()
+    #     return obj.to_dict(include_meta=True)
