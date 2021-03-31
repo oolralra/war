@@ -4,6 +4,12 @@ DEBUG = os.environ.get("DEBUG") in ["1", "t", "true", "T", "True"]
 
 CORS_ORIGIN_WHITELIST = os.environ.get("CORS_ORIGIN_WHITELIST", "").split(",")
 
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': '54.180.183.17:9200'
+    },
+}
+
 LOGGING = {
   'version': 1,
   'disable_existing_loggers': False,
