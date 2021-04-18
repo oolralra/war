@@ -44,7 +44,6 @@ class SingUpViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, GenericViewS
 
 
 class CsvUploadView(CreateAPIView):
-    permission_classes = [permissions.AllowAny]
 
     def create(self, request, *args, **kwargs):
         data = request.FILES["file"]
@@ -62,7 +61,6 @@ class CsvUploadView(CreateAPIView):
             })
 
 class CsvDownloadView(ListAPIView):
-    permission_classes = [permissions.AllowAny]
 
     def list(self, request, *args, **kwargs):
         response = HttpResponse(
