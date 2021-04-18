@@ -44,6 +44,8 @@ class SingUpViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, GenericViewS
 
 
 class CsvUploadView(CreateAPIView):
+    queryset = models.User.objects.all()
+    serializer_class = serializers.SignupSerializer
 
     def create(self, request, *args, **kwargs):
         data = request.FILES["file"]
