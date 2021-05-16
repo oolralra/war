@@ -13,7 +13,7 @@ LOGGING = {
         'logstash': {
             'level': 'INFO',
             'class': 'logstash.TCPLogstashHandler',
-            'host': '54.180.183.17',
+            'host': os.environ.get('HOST_IP'),
             'port': 5959,  # Default value: 5959
             'version': 1,
         },
