@@ -13,6 +13,6 @@ RUN pip install -r requirements.txt
 
 # Server
 
-EXPOSE 80
+EXPOSE 8000
 STOPSIGNAL SIGINT
-CMD ["gunicorn", "base.wsgi:application", "--bind", "0.0.0.0:80"]
+CMD ["gunicorn", "base.wsgi:application", "--bind", "0.0.0.0:8000"]

@@ -1,0 +1,48 @@
+---
+apiVersion: extensions/v1
+kind: Deployment
+metadata:
+  name: elasticsearch
+  namespace: devops-tool
+  labels:
+    app: elasticsearch
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: elasticsearch
+  template:
+    metadata:
+      labels:
+        app: elasticsearch
+    spec:
+      containers:
+      - name: elasticsearch
+        image: elasticsearch:latest
+        ports:
+        - containerPort: 9200
+        imagePullPolicy: Always
+        volumeMounts:
+        - mountPath: /usr/share/elasticsearch/data
+          name: elasticsearchdata
+      volumes:
+      - name: elasticsearchdata
+        persistentVolumeClaim:
+          claimName: elasrch-pv-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: devops-tool
+  name: elasticsearch
+spec:
+  ports:
+    - port: 9200
+      targetPort: 9200
+      protocol: TCP
+      name: http
+      nodePort: 30560
+  selector:
+    app: elasticsearch
+  type: LoadBalancer
+---
