@@ -1,31 +1,24 @@
-from django.shortcuts import render
+import os
+from datetime import timedelta, datetime
+from rest_framework import status, generics, exceptions as exc
 from rest_framework.response import Response
-from rest_framework.viewsets import GenericViewSet, ModelViewSet, ReadOnlyModelViewSet, mixins
-from . import models
-from . import serializers
 
-class SingUpViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, GenericViewSet):
+from . import serializers, models
+import jwt
+from django.contrib.auth.hashers import check_password
+
+
+class SignView(generics.CreateAPIView):
+    model = models.User
     serializer_class = serializers.SignupSerializer
-    queryset = models.User.objects.all()
-    # def get_queryset(self):
-    #     qs = models.User.objects.all()
-    #     return qs
 
     def create(self, request, *args, **kwargs):
-        """
-        배송관리 - 주문상품별 (완료)
+        serializer = self.get_serializer(data=request.data)
 
-        ### Parameter
+        if serializer.is_valid():
+            self.perform_create(serializer)
 
-            params : {
-            }
-
-        ### Response
-            {
-            }
-
-        """
-        # super(SingUpViewSet).create(self, request, *args, **kwargs):
-
-
-        return Response({"success": 1,"result": {}})
+        return Response({
+            'success': 1,
+            'data': serializer.data
+        }, status=status.HTTP_201_CREATED)

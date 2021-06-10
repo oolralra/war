@@ -1,12 +1,6 @@
-from django.contrib import admin
-from django.urls import path, include
-from rest_framework import routers
-
+from django.urls import path
 from . import views
 
-router = routers.SimpleRouter(trailing_slash=True)
-router.register(r"signup", views.SingUpViewSet, basename="siguup")
-
 urlpatterns = [
-    path("", include(router.urls)),
+    path('signup/', views.SignView.as_view(), name='sign-up'),
 ]

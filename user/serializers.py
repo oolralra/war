@@ -7,7 +7,6 @@ class SignupSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
 
     def create(self, validated_data):
-        print(validated_data)
         user = models.User.objects.create(
             user_id=validated_data['user_id'],
             username=validated_data['username'],
