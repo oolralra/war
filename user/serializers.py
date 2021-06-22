@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from . import models
 from django.contrib.auth.hashers import make_password
@@ -33,3 +34,11 @@ class SignupSerializer(serializers.ModelSerializer):
             'created_at',
             'modified_at'
         ]
+
+
+class LoginSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True)
+
+    class Meta:
+        model = get_user_model()
+        fields = ['user_index', 'user_id', 'username', 'created_at', 'modified_at']
